@@ -1,4 +1,4 @@
-/* RESET & BASE */
+/* --- CONFIGURATION GÉNÉRALE --- */
 * {
   margin: 0;
   padding: 0;
@@ -8,32 +8,36 @@
 
 html, body {
   min-height: 100vh;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background: #000 url('images/wip_0_transparent.png') no-repeat center center fixed;
+  font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  /* Correction du chemin pour GitHub Pages */
+  background: #000 url("./images/wip_0_transparent.png") no-repeat center center fixed;
   background-size: cover;
   color: #ff4d4d;
+  scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
-/* Overlay sombre pour la lisibilité */
+/* Overlay sombre optimisé (moins d'assombrissement pour voir mieux l'image) */
 body::before {
   content: '';
   position: fixed;
   top: 0; left: 0; right: 0; bottom: 0;
-  background-color: rgba(0, 0, 0, 0.85);
+  background-color: rgba(0, 0, 0, 0.65); /* Passé de 0.85 à 0.65 */
   z-index: -1;
 }
 
-/* BARRE DE NAVIGATION */
+/* --- BARRE DE NAVIGATION --- */
 .nav-bar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1em 2%;
-  background: rgba(20, 20, 20, 0.9);
+  padding: 12px 3%;
+  background: rgba(15, 15, 15, 0.95);
   border-bottom: 2px solid #ff4d4d;
   position: sticky;
   top: 0;
   z-index: 1000;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.7);
 }
 
 .nav-buttons {
@@ -46,122 +50,137 @@ body::before {
   display: inline-block;
   background-color: #ff4d4d;
   color: #fff;
-  padding: 0.6em 1em;
+  padding: 10px 14px;
   border-radius: 6px;
-  font-size: 0.9em;
+  font-size: 0.85em;
   text-transform: uppercase;
   text-decoration: none;
-  box-shadow: 0 0 10px rgba(255, 77, 77, 0.3);
   transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.3);
 }
 
 .nav-buttons a:hover {
   background-color: #e60000;
-  transform: scale(1.05);
-  box-shadow: 0 0 15px #ff4d4d;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(255, 77, 77, 0.4);
 }
 
 .logo-button img {
-  width: 150px;
+  width: 130px;
   height: auto;
+  display: block;
   transition: transform 0.3s ease;
 }
 
 .logo-button img:hover {
-  transform: scale(1.1);
+  transform: scale(1.05);
 }
 
-/* CONTENU PRINCIPAL */
+/* --- CONTENU PRINCIPAL --- */
 header {
   text-align: center;
-  padding: 2em 1em;
+  padding: 30px 15px 15px;
 }
 
 header h1 {
   font-size: 2.2em;
   color: #ff4d4d;
-  text-shadow: 0 0 10px rgba(255, 77, 77, 0.5);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-shadow: 0 0 15px rgba(255, 77, 77, 0.5);
 }
 
 header p {
-  font-size: 1.1em;
   color: #ff9999;
-  margin-top: 0.5em;
+  margin-top: 8px;
+  font-size: 1em;
 }
 
 main {
-  background-color: rgba(20, 20, 20, 0.9);
+  background-color: rgba(20, 20, 20, 0.85);
   border-radius: 12px;
-  padding: 2em;
-  margin: 1em auto 3em;
+  padding: 25px;
+  margin: 10px auto 50px;
   max-width: 600px;
-  width: 95%;
-  box-shadow: 0 0 30px rgba(255, 77, 77, 0.2);
+  width: 92%;
   border: 1px solid rgba(255, 77, 77, 0.3);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
 }
 
 label {
   display: block;
-  margin-top: 1.2em;
+  margin-top: 18px;
   color: #ff9999;
+  font-size: 0.95em;
+  text-align: left;
 }
 
 select, input {
   width: 100%;
-  padding: 0.8em;
-  margin-top: 0.5em;
+  padding: 12px;
+  margin-top: 8px;
   border: 2px solid #ff4d4d;
   border-radius: 6px;
-  background-color: #121212;
-  color: #ffffff;
-  font-size: 1em;
+  background-color: #000;
+  color: #fff;
+  font-size: 1.1em;
   outline: none;
 }
 
+select:focus, input:focus {
+  border-color: #ffffff;
+}
+
 button {
-  margin-top: 2.5em;
-  padding: 1em;
+  margin-top: 30px;
+  padding: 15px;
   background-color: #ff4d4d;
   border: none;
   border-radius: 6px;
-  color: white;
+  color: #fff;
   font-size: 1.2em;
   cursor: pointer;
   width: 100%;
-  transition: all 0.3s ease;
   text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
 }
 
 button:hover {
   background-color: #e60000;
-  transform: translateY(-2px);
+  transform: scale(1.02);
+  box-shadow: 0 0 20px rgba(255, 77, 77, 0.4);
 }
 
 .result {
-  margin-top: 2em;
-  padding: 1.5em;
+  margin-top: 25px;
+  padding: 20px;
   background: rgba(255, 77, 77, 0.1);
   border-radius: 8px;
-  font-size: 1.2em;
   text-align: center;
   border: 1px dashed #ff4d4d;
+  line-height: 1.6;
 }
 
+/* --- PIED DE PAGE --- */
 footer {
   text-align: center;
-  padding: 2em;
-  color: #ff9999;
+  padding: 40px 20px;
+  color: #888;
   font-size: 0.85em;
 }
 
-/* RESPONSIVE */
+/* --- ADAPTATION MOBILE --- */
 @media (max-width: 600px) {
   .nav-bar {
     flex-direction: column;
-    padding: 1em;
+    padding: 15px;
     gap: 15px;
   }
   .nav-buttons {
     justify-content: center;
+  }
+  header h1 {
+    font-size: 1.8em;
   }
 }

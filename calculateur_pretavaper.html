@@ -1,0 +1,64 @@
+
+<!DOCTYPE html>
+
+<html lang="fr">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Calculateur Prêt à Vaper - WIP</title>
+<link href="style.css" rel="stylesheet"/>
+</head>
+<body>
+<div class="nav-bar">
+<div class="nav-buttons">
+<a href="calculateur_diy.html" title="Calculateur DIY">DIY</a>
+<a href="calculateur_coil.html" title="Calculateur COIL">COIL</a>
+<a href="calculateur_pretavaper.html" title="Calculateur PAV">PAV</a>
+<a href="coil_expert.html" title="Calculateur COIL EXPERT">COIL EXPERT</a></div>
+<div class="logo-button">
+<a href="https://www.wireinprogress.com" target="_blank">
+<img alt="Wire In Progress" src="images/wip_100_transparent.png"/>
+</a>
+</div>
+</div>
+<header>
+<h1>Calculateur de Prêt À Vaper WIP</h1>
+<p>Résistance estimée d’un montage avec fils âme + claptonnage</p>
+</header>
+<!-- Bouton COIL pour revenir -->
+<!-- Logo en haut à droite -->
+<main>
+<label for="baseVolume">Volume du liquide prêt à vaper (ml)</label>
+<input id="baseVolume" required="" type="number" value="50"/>
+<label for="targetNicotine">Taux de nicotine souhaité (mg/ml)</label>
+<input id="targetNicotine" required="" type="number" value="3"/>
+<label for="boosterStrength">Taux de nicotine du booster (mg/ml)</label>
+<input id="boosterStrength" required="" type="number" value="20"/>
+<button onclick="calculerNicotine()">Calculer</button>
+<div class="result" id="resultat" style="display:none;"></div>
+</main>
+<script>
+    function calculerNicotine() {
+      const baseVolume = parseFloat(document.getElementById('baseVolume').value);
+      const targetNicotine = parseFloat(document.getElementById('targetNicotine').value);
+      const boosterStrength = parseFloat(document.getElementById('boosterStrength').value);
+
+      const boosterVolume = (baseVolume * targetNicotine) / (boosterStrength - targetNicotine);
+      const totalVolume = baseVolume + boosterVolume;
+      const actualNicotine = (boosterStrength * boosterVolume) / totalVolume;
+
+      const resultat = `
+        <strong>💉 Dosage de nicotine prêt à vaper :</strong><br><br>
+        🔸 Ajouter <strong>${boosterVolume.toFixed(2)} ml</strong> de booster<br>
+        🔸 Volume total après ajout : <strong>${totalVolume.toFixed(2)} ml</strong><br>
+        🔸 Taux réel obtenu : <strong>${actualNicotine.toFixed(2)} mg/ml</strong>
+      `;
+
+      document.getElementById('resultat').innerHTML = resultat;
+      document.getElementById('resultat').style.display = 'block';
+    }
+  </script>
+<footer>
+    © 2025 Wire In Progress - Fait par des vapoteurs, pour des vapoteurs 🔧💨
+  </footer></body>
+</html>

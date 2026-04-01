@@ -1,0 +1,218 @@
+* {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-weight: bold;
+    }
+    html, body {
+      min-height: 100vh;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: url('images/wip_0_transparent.png') no-repeat center center fixed;
+      background-size: cover;
+      color: #ff4d4d;
+    }
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background-color: rgba(0, 0, 0, 0.85);
+      z-index: -1;
+    }
+    
+    
+    
+    header {
+      text-align: center;
+      padding: 2em 1em 1em;
+    }
+    header h1 {
+      font-size: 2.5em;
+      color: #ff4d4d;
+    }
+    header p {
+      font-size: 1.2em;
+      color: #ff9999;
+    }
+    main {
+      background-color: rgba(0, 0, 0, 0.75);
+      border-radius: 12px;
+      padding: 2em;
+      margin: 2em auto;
+      max-width: 600px;
+      width: 90%;
+      box-shadow: 0 0 20px rgba(255, 77, 77, 0.3);
+    }
+    label {
+      display: block;
+      margin-top: 1em;
+    }
+    select {
+      width: 100%;
+      padding: 0.75em;
+      margin-top: 0.5em;
+      border: 2px solid #ff4d4d;
+      border-radius: 6px;
+      background-color: #1c1c1c;
+      color: #ff4d4d;
+      font-size: 1em;
+    }
+    button {
+      margin-top: 2em;
+      padding: 0.75em;
+      background-color: #ff4d4d;
+      border: none;
+      border-radius: 6px;
+      color: white;
+      font-size: 1.1em;
+      cursor: pointer;
+      width: 100%;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+    button:hover {
+      background-color: #e60000;
+      transform: scale(1.03);
+    }
+    .result {
+      margin-top: 2em;
+      font-size: 1.3em;
+      text-align: center;
+    }
+    footer {
+      text-align: center;
+      margin: 3em auto 1em;
+      color: #ff4d4d;
+      font-size: 0.9em;
+    }
+    @media (max-width: 768px) {
+      
+      header h1 {
+        font-size: 2em;
+      }
+      header p {
+        font-size: 1em;
+      }
+    }
+
+
+  position: fixed;
+  top: 20px;
+  left: 120px;
+  z-index: 20;
+}
+  display: inline-block;
+  background-color: #ff4d4d;
+  color: #fff;
+  padding: 0.75em 1.5em;
+  border-radius: 6px;
+  font-size: 1.1em;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: bold;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  text-decoration: none;
+  box-shadow: 0 0 10px #ff4d4d;
+  transition: background-color 0.3s, transform 0.2s;
+}
+  background-color: #e60000;
+  transform: scale(1.05);
+}
+
+
+
+
+.nav-buttons a:hover {
+  background-color: #e60000;
+  transform: scale(1.05);
+}
+
+
+input[type="number"],
+input[type="text"] {
+  width: 100%;
+  padding: 0.75em;
+  margin-top: 0.5em;
+  border: 2px solid #ff4d4d;
+  border-radius: 6px;
+  background-color: #1c1c1c;
+  color: #ff4d4d;
+  font-size: 1em;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.nav-buttons a:hover {
+  background-color: #e60000;
+  transform: scale(1.05);
+}
+
+
+
+
+
+
+
+
+.nav-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1em 2em;
+}
+
+.nav-buttons {
+  display: flex;
+  gap: 12px;
+}
+
+.nav-buttons a {
+  display: inline-block;
+  background-color: #ff4d4d;
+  color: #fff;
+  padding: 0.75em 1.2em;
+  border-radius: 6px;
+  font-size: 1em;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: bold;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  text-decoration: none;
+  box-shadow: 0 0 10px #ff4d4d;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.nav-buttons a:hover {
+  background-color: #e60000;
+  transform: scale(1.05);
+}
+
+.logo-button img {
+  width: 5cm;
+  height: auto;
+  object-fit: contain;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transform-origin: center center;
+}
+
+.logo-button img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px #ff4d4d;
+}

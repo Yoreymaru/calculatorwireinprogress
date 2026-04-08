@@ -1,75 +1,75 @@
-
 <!DOCTYPE html>
-
 <html lang="fr">
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Calculateur DIY WIP</title>
-<link href="style.css" rel="stylesheet"/>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Calculateur DIY WIP</title>
+    <link href="style.css" rel="stylesheet"/>
 </head>
 <body>
-<div class="nav-bar">
-<div class="nav-buttons">
-<a href="calculateur_diy.html" title="Calculateur DIY">DIY</a>
-<a href="calculateur_coil.html" title="Calculateur COIL">COIL</a>
-<a href="calculateur_pretavaper.html" title="Calculateur PAV">PAV</a>
-<a href="coil_expert.html" title="Calculateur COIL EXPERT">COIL EXPERT</a></div>
-<div class="logo-button">
-<a href="https://www.wireinprogress.com" target="_blank">
-<img alt="Wire In Progress" src="images/wip_100_transparent.png"/>
-</a>
-</div>
-</div>
-<header>
-<h1>Calculateur de DIY WIP</h1>
-<p>Résistance estimée d’un montage avec fils âme + claptonnage</p>
-</header>
-<main>
-<label for="volume">Volume final (ml)</label>
-<input id="volume" required="" type="number" value="100"/>
-<label for="nicotine">Taux de nicotine souhaité (mg/ml)</label>
-<input id="nicotine" required="" type="number" value="3"/>
-<label for="booster">Taux de nicotine du booster (mg/ml)</label>
-<input id="booster" required="" type="number" value="20"/>
-<label for="arome">Pourcentage total d'arôme (%)</label>
-<input id="arome" required="" type="number" value="10"/>
-<label for="pgvg">Ratio PG/VG</label>
-<select id="pgvg">
-<option value="50/50">50 / 50</option>
-<option value="70/30">70 / 30</option>
-<option value="30/70">30 / 70</option>
-<option value="100/0">100 / 0 (full PG)</option>
-<option value="0/100">0 / 100 (full VG)</option>
-</select>
-<button onclick="calculerDIY()">Calculer ma recette</button>
-<div class="result" id="resultat" style="display:none;"></div>
-</main>
-<script>
-    function calculerDIY() {
-      const volume = parseFloat(document.getElementById('volume').value);
-      const tauxNicotine = parseFloat(document.getElementById('nicotine').value);
-      const tauxBooster = parseFloat(document.getElementById('booster').value);
-      const pourcentArome = parseFloat(document.getElementById('arome').value);
-      const ratio = document.getElementById('pgvg').value;
+    <div class="nav-bar">
+        <div class="logo-button">
+            <a href="https://www.wireinprogress.com" target="_blank">
+                <img alt="Wire In Progress" src="images/wip_100_transparent.png"/>
+            </a>
+        </div>
+        <div class="nav-buttons">
+            <a href="calculateur_diy.html" title="Calculateur DIY">DIY</a>
+            <a href="calculateur_coil.html" title="Calculateur COIL">COIL</a>
+            <a href="calculateur_pretavaper.html" title="Calculateur PAV">PAV</a>
+            <a href="coil_expert.html" title="Calculateur COIL EXPERT">COIL EXPERT</a>
+        </div>
+    </div>
+    <header>
+        <h1>Calculateur de DIY WIP</h1>
+        <p>Préparez votre propre liquide avec précision</p>
+    </header>
+    <main>
+        <label for="volume">Volume final (ml)</label>
+        <input id="volume" required="" type="number" value="100"/>
+        <label for="nicotine">Taux de nicotine souhaité (mg/ml)</label>
+        <input id="nicotine" required="" type="number" value="3"/>
+        <label for="booster">Taux de nicotine du booster (mg/ml)</label>
+        <input id="booster" required="" type="number" value="20"/>
+        <label for="arome">Pourcentage total d'arôme (%)</label>
+        <input id="arome" required="" type="number" value="10"/>
+        <label for="pgvg">Ratio PG/VG</label>
+        <select id="pgvg">
+            <option value="50/50">50 / 50</option>
+            <option value="70/30">70 / 30</option>
+            <option value="30/70">30 / 70</option>
+            <option value="100/0">100 / 0 (full PG)</option>
+            <option value="0/100">0 / 100 (full VG)</option>
+        </select>
+        <button onclick="calculerDIY()">Calculer ma recette</button>
+        <div class="result" id="resultat" style="display:none;"></div>
+    </main>
+    <footer>
+        © 2025 Wire In Progress - Fait par des vapoteurs, pour des vapoteurs 🔧💨
+    </footer>
+    <script>
+        function calculerDIY() {
+            const volume = parseFloat(document.getElementById('volume').value);
+            const tauxNicotine = parseFloat(document.getElementById('nicotine').value);
+            const tauxBooster = parseFloat(document.getElementById('booster').value);
+            const pourcentArome = parseFloat(document.getElementById('arome').value);
+            const ratio = document.getElementById('pgvg').value;
 
-      const volumeNicotine = (volume * tauxNicotine) / tauxBooster;
-      const volumeArome = (volume * pourcentArome) / 100;
-      const volumeBase = volume - volumeNicotine - volumeArome;
+            const volumeNicotine = (volume * tauxNicotine) / tauxBooster;
+            const volumeArome = (volume * pourcentArome) / 100;
+            const volumeBase = volume - volumeNicotine - volumeArome;
 
-      const resultat = `
-        <strong>💥 Ta recette est prête !</strong><br><br>
-        🔹 <strong>Booster de nicotine :</strong> ${volumeNicotine.toFixed(2)} ml<br>
-        🔹 <strong>Arômes :</strong> ${volumeArome.toFixed(2)} ml<br>
-        🔹 <strong>Base PG/VG (${ratio}) :</strong> ${volumeBase.toFixed(2)} ml<br><br>
-        🧪 À secouer comme un cocktail, et steep si besoin 🕒
-      `;
+            const resultat = `
+                <strong>💥 Ta recette est prête !</strong><br><br>
+                🔹 <strong>Booster de nicotine :</strong> ${volumeNicotine.toFixed(2)} ml<br>
+                🔹 <strong>Arômes :</strong> ${volumeArome.toFixed(2)} ml<br>
+                🔹 <strong>Base PG/VG (${ratio}) :</strong> ${volumeBase.toFixed(2)} ml<br><br>
+                🧪 À secouer comme un cocktail, et steep si besoin 🕒
+            `;
 
-      document.getElementById('resultat').innerHTML = resultat;
-      document.getElementById('resultat').style.display = 'block';
-    }
-  </script>
-<footer>
-    © 2025 Wire In Progress - Fait par des vapoteurs, pour des vapoteurs 🔧💨
-  </footer></body>
+            document.getElementById('resultat').innerHTML = resultat;
+            document.getElementById('resultat').style.display = 'block';
+        }
+    </script>
+</body>
 </html>

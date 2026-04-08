@@ -11,19 +11,17 @@ html, body {
   font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
   background: #000 url("./images/wip_0_transparent.png") no-repeat center center fixed;
   background-size: cover;
-  /* Rouge légèrement plus vif et ajout d'une ombre pour la lisibilité */
-  color: #ff5e5e;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.9);
+  color: #ffffff; /* Texte de base en BLANC pour le contraste */
   scroll-behavior: smooth;
   overflow-x: hidden;
 }
 
-/* Overlay sombre optimisé */
+/* Overlay sombre sur TOUTE la page pour atténuer l'image de fond */
 body::before {
   content: '';
   position: fixed;
   top: 0; left: 0; right: 0; bottom: 0;
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: rgba(0, 0, 0, 0.85); /* Très sombre pour bien détacher le contenu */
   z-index: -1;
 }
 
@@ -33,19 +31,17 @@ body::before {
   flex-direction: column;
   align-items: center;
   padding: 15px 3%;
-  background: rgba(10, 10, 10, 0.98);
+  background: #0a0a0a; /* Noir pur pour la navigation */
   border-bottom: 2px solid #ff4d4d;
   position: sticky;
   top: 0;
   z-index: 1000;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.8);
   gap: 15px;
 }
 
 .logo-button img {
-  width: 160px;
+  width: 150px;
   height: auto;
-  display: block;
 }
 
 .nav-buttons {
@@ -64,8 +60,6 @@ body::before {
   font-size: 0.8em;
   text-transform: uppercase;
   text-decoration: none;
-  text-shadow: none; /* Pas d'ombre sur les boutons pour garder le texte net */
-  transition: 0.3s;
 }
 
 /* --- CONTENU PRINCIPAL --- */
@@ -78,30 +72,30 @@ header h1 {
   font-size: 2.2em;
   color: #ff4d4d;
   text-transform: uppercase;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
 }
 
 header p {
-  color: #ffb3b3; /* Plus clair pour les descriptions */
+  color: #ffcccc;
   margin-top: 8px;
-  font-size: 1em;
 }
 
 main {
-  background-color: rgba(15, 15, 15, 0.9);
+  /* FOND NOIR TOTALEMENT OPAQUE POUR BLOQUER L'IMAGE DERRIÈRE */
+  background-color: #121212;
   border-radius: 12px;
   padding: 25px;
   margin: 10px auto 50px;
   max-width: 600px;
   width: 92%;
-  border: 1px solid rgba(255, 77, 77, 0.3);
+  border: 1px solid #ff4d4d;
+  box-shadow: 0 0 20px rgba(255, 77, 77, 0.2);
 }
 
 label {
   display: block;
   margin-top: 18px;
-  color: #ffb3b3; /* Rose/Rouge très clair pour une lecture facile */
-  font-size: 0.95em;
+  color: #ffb3b3; /* Texte clair pour les labels */
+  font-size: 1em;
   text-align: left;
 }
 
@@ -132,12 +126,13 @@ button {
 .result {
   margin-top: 25px;
   padding: 20px;
-  background: rgba(255, 77, 77, 0.15);
+  background: #1a1a1a; /* Fond propre pour le résultat */
   border-radius: 8px;
   text-align: center;
-  border: 1px dashed #ff4d4d;
+  border: 2px dashed #ff4d4d;
   line-height: 1.6;
-  color: #ffffff; /* Texte de résultat en BLANC pour une lisibilité parfaite */
+  color: #ffffff;
+  font-size: 1.2em;
 }
 
 footer {
@@ -147,7 +142,6 @@ footer {
   font-size: 0.85em;
 }
 
-/* MOBILE */
 @media (max-width: 600px) {
   header h1 { font-size: 1.8em; }
 }

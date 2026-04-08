@@ -9,39 +9,42 @@
 html, body {
   min-height: 100vh;
   font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  /* Fond noir de secours + image de fond fixée */
   background: #000 url("./images/wip_0_transparent.png") no-repeat center center fixed;
   background-size: cover;
-  color: #ffffff; /* Texte de base en BLANC pour le contraste */
+  color: #ffffff;
   scroll-behavior: smooth;
   overflow-x: hidden;
 }
 
-/* Overlay sombre sur TOUTE la page pour atténuer l'image de fond */
+/* Voile noir global sur l'image de fond pour protéger tout le texte */
 body::before {
   content: '';
   position: fixed;
   top: 0; left: 0; right: 0; bottom: 0;
-  background-color: rgba(0, 0, 0, 0.85); /* Très sombre pour bien détacher le contenu */
+  background-color: rgba(0, 0, 0, 0.8);
   z-index: -1;
 }
 
-/* --- BARRE DE NAVIGATION --- */
+/* --- BARRE DE NAVIGATION (LOGO EN HAUT, BOUTONS EN DESSOUS) --- */
 .nav-bar {
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 15px 3%;
-  background: #0a0a0a; /* Noir pur pour la navigation */
+  background: #000000; /* Noir pur opaque */
   border-bottom: 2px solid #ff4d4d;
   position: sticky;
   top: 0;
   z-index: 1000;
   gap: 15px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.8);
 }
 
 .logo-button img {
-  width: 150px;
+  width: 160px;
   height: auto;
+  display: block;
 }
 
 .nav-buttons {
@@ -55,59 +58,81 @@ body::before {
   display: inline-block;
   background-color: #ff4d4d;
   color: #fff;
-  padding: 10px 12px;
+  padding: 10px 14px;
   border-radius: 6px;
-  font-size: 0.8em;
+  font-size: 0.85em;
   text-transform: uppercase;
   text-decoration: none;
+  transition: 0.2s;
 }
 
-/* --- CONTENU PRINCIPAL --- */
+.nav-buttons a:hover {
+  background-color: #e60000;
+  transform: scale(1.05);
+}
+
+/* --- BLOCS DE CONTENU (HAUTE LISIBILITÉ) --- */
+/* On unifie le header et le main dans un bloc noir opaque pour bloquer l'image derrière */
+header, main {
+  background-color: #000000; /* NOIR PUR OPAQUE */
+  max-width: 600px;
+  width: 92%;
+  margin-left: auto;
+  margin-right: auto;
+  border-left: 2px solid #ff4d4d;
+  border-right: 2px solid #ff4d4d;
+}
+
 header {
+  margin-top: 20px;
+  padding: 30px 20px 10px;
   text-align: center;
-  padding: 30px 15px 10px;
+  border-top: 2px solid #ff4d4d;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
 }
 
 header h1 {
-  font-size: 2.2em;
+  font-size: 2em;
   color: #ff4d4d;
   text-transform: uppercase;
+  margin-bottom: 10px;
+  letter-spacing: 1px;
 }
 
 header p {
-  color: #ffcccc;
-  margin-top: 8px;
+  color: #ffcccc; /* Rose très clair */
+  font-size: 1.05em;
+  line-height: 1.4;
 }
 
 main {
-  /* FOND NOIR TOTALEMENT OPAQUE POUR BLOQUER L'IMAGE DERRIÈRE */
-  background-color: #121212;
-  border-radius: 12px;
-  padding: 25px;
-  margin: 10px auto 50px;
-  max-width: 600px;
-  width: 92%;
-  border: 1px solid #ff4d4d;
-  box-shadow: 0 0 20px rgba(255, 77, 77, 0.2);
+  margin-bottom: 50px;
+  padding: 10px 25px 30px;
+  border-bottom: 2px solid #ff4d4d;
+  border-bottom-left-radius: 12px;
+  border-bottom-right-radius: 12px;
 }
 
+/* --- FORMULAIRE --- */
 label {
   display: block;
-  margin-top: 18px;
-  color: #ffb3b3; /* Texte clair pour les labels */
-  font-size: 1em;
+  margin-top: 20px;
+  color: #ffb3b3;
+  font-size: 0.95em;
   text-align: left;
 }
 
 select, input {
   width: 100%;
   padding: 12px;
-  margin-top: 8px;
-  border: 2px solid #ff4d4d;
+  margin-top: 6px;
+  border: 1px solid #ff4d4d;
   border-radius: 6px;
-  background-color: #000;
-  color: #fff;
+  background-color: #111;
+  color: #ffffff;
   font-size: 1.1em;
+  outline: none;
 }
 
 button {
@@ -121,27 +146,39 @@ button {
   text-transform: uppercase;
   cursor: pointer;
   width: 100%;
+  transition: 0.3s;
 }
 
+button:hover {
+  background-color: #e60000;
+  box-shadow: 0 0 15px rgba(255, 77, 77, 0.4);
+}
+
+/* Zone de résultat */
 .result {
   margin-top: 25px;
   padding: 20px;
-  background: #1a1a1a; /* Fond propre pour le résultat */
+  background: #0a0a0a;
   border-radius: 8px;
   text-align: center;
   border: 2px dashed #ff4d4d;
-  line-height: 1.6;
   color: #ffffff;
-  font-size: 1.2em;
+  font-size: 1.15em;
+  line-height: 1.6;
 }
 
+/* --- PIED DE PAGE --- */
 footer {
   text-align: center;
-  padding: 40px 20px;
-  color: #888;
-  font-size: 0.85em;
+  padding: 20px;
+  padding-bottom: 50px;
+  color: #777;
+  font-size: 0.8em;
 }
 
+/* AJUSTEMENTS MOBILE */
 @media (max-width: 600px) {
-  header h1 { font-size: 1.8em; }
+  header h1 { font-size: 1.6em; }
+  .nav-bar { padding: 15px 10px; }
+  main { padding: 10px 15px 25px; }
 }
